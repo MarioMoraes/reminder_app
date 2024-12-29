@@ -1,0 +1,17 @@
+/*
+ REMINDER 
+*/
+
+/* MARK: - LOGIN SCREEN */
+
+"login.label.title" = "Entre para acessar suas Receitas";
+"login.hint.email.text" = "Email";
+"login.emailText.placeholder" = "email@example.com";
+"login.hint.password.text" = "Senha";
+"login.button.title" = "Entrar";
+
+
+/* MARK: - HONE */
+"home.welcomeLabel.text" = "Bem Vindo";
+"home.nameLabel.text" = "Mario Moraes";
+"home.feedBackButton.title" = "Avaliar";
