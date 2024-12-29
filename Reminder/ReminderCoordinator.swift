@@ -20,16 +20,14 @@ class ReminderCoordinator: LoginBottomSheetFlowDelegate {
 }
 
 // MARK: - Login
-extension ReminderCoordinator: LoginBottomSheetViewDelegate, HomeFlowDelegate {
+extension ReminderCoordinator: LoginBottomSheetViewDelegate {
     func sendDataLogin(user: String, password: String) {
     }
     
-    func navigateToHome() {
+    func navigateToHome(){
         self.navigationController?.dismiss(animated: false)
-        let home = viewControllersFactory.makeHomeViewController(flowDelegate: self)
-        home.modalPresentationStyle = .overCurrentContext
-        home.modalTransitionStyle = .crossDissolve
-        navigationController?.present(home, animated: false)
+        let viewController = viewControllersFactory.makeHomeViewController(flowDelegate: self)
+        self.navigationController?.pushViewController(viewController, animated: true)
     }
 }
 
@@ -45,14 +43,20 @@ extension ReminderCoordinator: SplashFlowDelegate {
 
         func navigateToHome() {
             self.navigationController?.dismiss(animated: false)
-            let home = viewControllersFactory.makeHomeViewController(flowDelegate: self)
-            home.modalPresentationStyle = .overCurrentContext
-            home.modalTransitionStyle = .crossDissolve
-            navigationController?.present(home, animated: false)
+            let viewController = viewControllersFactory.makeHomeViewController(flowDelegate: self)
+            self.navigationController?.pushViewController(viewController, animated: true)
         }
-
     }
-    
-
 }
 
+// MARK: - Home
+extension ReminderCoordinator: HomeFlowDelegate {
+    func navigateToRecipes() {
+        
+    }
+    
+    func logout() {
+        self.navigationController?.popViewController(animated: true)
+        self.openLoginBottomSheet()
+    }
+}

@@ -6,9 +6,12 @@
 //
 
 import Foundation
+import UIKit
 
 class UserDefaultManager {
     private static var userKey = "userKey"
+    private static var userNameKey = "userNameKey"
+    private static var userImageKey = "userImageKey"
     
     static func saveUser(user: User){
         let encoder = JSONEncoder()
@@ -33,4 +36,34 @@ class UserDefaultManager {
         UserDefaults.standard.removeObject(forKey: userKey)
         UserDefaults.standard.synchronize()
     }
+    
+    static func saveUserName(user: String){
+        UserDefaults.standard.set(user, forKey: userNameKey)
+        UserDefaults.standard.synchronize()
+    }
+    
+    static func loadUserName() -> String? {
+        return UserDefaults.standard.string(forKey: userNameKey)
+    }
+    
+    static func removeUserName(){
+        UserDefaults.standard.removeObject(forKey: userNameKey)
+        UserDefaults.standard.synchronize()
+    }
+    
+    static func saveUserImage(image: UIImage){
+        if let imageData = image.pngData() {
+            UserDefaults.standard.set(imageData, forKey: userImageKey)
+        }
+    }
+    
+    static func loadUserImage() -> UIImage? {
+        if let imageData = UserDefaults.standard.data(forKey: userImageKey){
+            return UIImage(data: imageData)
+        } else {
+            print("Nenhuma imagem encontrada")
+            return nil
+        }
+    }
 }
+
