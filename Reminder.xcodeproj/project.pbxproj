@@ -13,6 +13,7 @@
 		77030F8D2D0F6020005C9383 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77030F8C2D0F6020005C9383 /* Assets.xcassets */; };
 		770BF6972D1A15520074B95E /* LoginBottomSheetFlowDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770BF6962D1A15520074B95E /* LoginBottomSheetFlowDelegate.swift */; };
 		770ECDD62D163A4A00A90144 /* LoginBottomSheetViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770ECDD52D163A4A00A90144 /* LoginBottomSheetViewDelegate.swift */; };
+		770F24DA2D275D78005D4E05 /* ButtonHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770F24D92D275D78005D4E05 /* ButtonHomeView.swift */; };
 		773272222D12121900066A7B /* LoginBottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773272212D12121900066A7B /* LoginBottomSheetViewController.swift */; };
 		773272242D12130000066A7B /* LoginBottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773272232D12130000066A7B /* LoginBottomSheetView.swift */; };
 		773E3F182D1A2E6900F5C0A5 /* SplashFlowDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773E3F172D1A2E6900F5C0A5 /* SplashFlowDelegate.swift */; };
@@ -47,6 +48,7 @@
 		77030F912D0F6020005C9383 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		770BF6962D1A15520074B95E /* LoginBottomSheetFlowDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginBottomSheetFlowDelegate.swift; sourceTree = "<group>"; };
 		770ECDD52D163A4A00A90144 /* LoginBottomSheetViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginBottomSheetViewDelegate.swift; sourceTree = "<group>"; };
+		770F24D92D275D78005D4E05 /* ButtonHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonHomeView.swift; sourceTree = "<group>"; };
 		773272212D12121900066A7B /* LoginBottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginBottomSheetViewController.swift; sourceTree = "<group>"; };
 		773272232D12130000066A7B /* LoginBottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginBottomSheetView.swift; sourceTree = "<group>"; };
 		773E3F172D1A2E6900F5C0A5 /* SplashFlowDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashFlowDelegate.swift; sourceTree = "<group>"; };
@@ -126,6 +128,22 @@
 			path = Reminder;
 			sourceTree = "<group>";
 		};
+		770F24D72D275BAF005D4E05 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				770F24D82D275D64005D4E05 /* ButtonHomeView */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		770F24D82D275D64005D4E05 /* ButtonHomeView */ = {
+			isa = PBXGroup;
+			children = (
+				770F24D92D275D78005D4E05 /* ButtonHomeView.swift */,
+			);
+			path = ButtonHomeView;
+			sourceTree = "<group>";
+		};
 		773272202D1211F900066A7B /* LoginBottomSheet */ = {
 			isa = PBXGroup;
 			children = (
@@ -156,6 +174,7 @@
 		7751DCDA2D10A7A400A460A2 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				770F24D72D275BAF005D4E05 /* Components */,
 				77E2242E2D1F4F84002D868B /* Scenes */,
 				775AAE772D1D958C00EBC6E1 /* UserDefault */,
 				775AAE742D1D952F00EBC6E1 /* Model */,
@@ -452,6 +471,7 @@
 				773E3F182D1A2E6900F5C0A5 /* SplashFlowDelegate.swift in Sources */,
 				7765E2FA2D11FC2D00B1C61E /* MetricsConstants.swift in Sources */,
 				77030F862D0F601A005C9383 /* SceneDelegate.swift in Sources */,
+				770F24DA2D275D78005D4E05 /* ButtonHomeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

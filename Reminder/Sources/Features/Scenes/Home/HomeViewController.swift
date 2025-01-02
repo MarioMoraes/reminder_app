@@ -97,8 +97,10 @@ extension HomeViewController: UIImagePickerControllerDelegate, UINavigationContr
     internal func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let editedImage = info[.editedImage] as? UIImage {
             contentView.profileImage.image = editedImage
+            UserDefaultManager.saveUserImage(image: editedImage)
         } else if let originalImage = info[.originalImage] as? UIImage {
             contentView.profileImage.image = originalImage
+            UserDefaultManager.saveUserImage(image: originalImage)
         }
         dismiss(animated: true)
     }

@@ -32,11 +32,10 @@ class HomeView: UIView, UITextFieldDelegate {
     let profileImage: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.image = UIImage(named: "user")
         imageView.isUserInteractionEnabled = true
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFill
+        imageView.layer.cornerRadius = Metrics.circular
         imageView.clipsToBounds = true
-        imageView.layer.cornerRadius = Metrics.medium
         
         return imageView
     }()
@@ -72,7 +71,27 @@ class HomeView: UIView, UITextFieldDelegate {
         
         return button
     }()
-
+    
+    // Component ButtonHomeView
+    let prescription: ButtonHomeView = {
+       let button = ButtonHomeView(icon: UIImage(named: "Paper"),
+                                   title: "Minhas Receitas",
+                                   description: "Acompanhe os medicamentos e gerencie lembretes")
+        
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
+    // Component ButtonHomeView
+    let newPrescription: ButtonHomeView = {
+       let button = ButtonHomeView(icon: UIImage(named: "Pills"),
+                                   title: "Nova Receita",
+                                   description: "Cadastre novos lembretes de receitas")
+        
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupUI()
@@ -93,13 +112,15 @@ class HomeView: UIView, UITextFieldDelegate {
         
         self.addSubview(contentBackground)
         contentBackground.addSubview(feedBackButton)
+        contentBackground.addSubview(prescription)
+        contentBackground.addSubview(newPrescription)
                 
         setupConstraints()
         profileImageGesture()
     }
     
     private func setupConstraints(){
-        self.translatesAutoresizingMaskIntoConstraints = false
+        translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             profileBackground.topAnchor.constraint(equalTo: topAnchor),
@@ -126,7 +147,18 @@ class HomeView: UIView, UITextFieldDelegate {
             feedBackButton.bottomAnchor.constraint(equalTo: contentBackground.bottomAnchor, constant: -Metrics.medium),
             feedBackButton.leadingAnchor.constraint(equalTo: contentBackground.leadingAnchor, constant: Metrics.medium),
             feedBackButton.trailingAnchor.constraint(equalTo: contentBackground.trailingAnchor, constant: -Metrics.medium),
-            feedBackButton.heightAnchor.constraint(equalToConstant: Metrics.huge)
+            feedBackButton.heightAnchor.constraint(equalToConstant: Metrics.huge),
+            
+            prescription.topAnchor.constraint(equalTo: contentBackground.topAnchor, constant: Metrics.huge),
+            prescription.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Metrics.medium),
+            prescription.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Metrics.medium),
+            prescription.heightAnchor.constraint(equalToConstant: 112),
+            
+            newPrescription.topAnchor.constraint(equalTo: prescription.bottomAnchor, constant: Metrics.medium),
+            newPrescription.leadingAnchor.constraint(equalTo: contentBackground.leadingAnchor, constant: Metrics.medium),
+            newPrescription.trailingAnchor.constraint(equalTo: contentBackground.trailingAnchor, constant: -Metrics.medium),
+            newPrescription.heightAnchor.constraint(equalToConstant: 112),
+
         ])
     }
     
@@ -145,6 +177,7 @@ class HomeView: UIView, UITextFieldDelegate {
                             action: #selector(nameLabelEditingDidEnd),
                             for: .editingDidEnd)
         nameTextField.delegate = self
+        
     }
     
     @objc
@@ -162,3 +195,4 @@ extension HomeView: UITextViewDelegate {
         return true
     }
 }
+	

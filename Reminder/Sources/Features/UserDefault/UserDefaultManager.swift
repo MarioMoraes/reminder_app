@@ -34,6 +34,8 @@ class UserDefaultManager {
     
     static func removeUser(){
         UserDefaults.standard.removeObject(forKey: userKey)
+        UserDefaults.standard.removeObject(forKey: userNameKey)
+        UserDefaults.standard.removeObject(forKey: userImageKey)
         UserDefaults.standard.synchronize()
     }
     
@@ -46,13 +48,8 @@ class UserDefaultManager {
         return UserDefaults.standard.string(forKey: userNameKey)
     }
     
-    static func removeUserName(){
-        UserDefaults.standard.removeObject(forKey: userNameKey)
-        UserDefaults.standard.synchronize()
-    }
-    
     static func saveUserImage(image: UIImage){
-        if let imageData = image.pngData() {
+        if let imageData = image.jpegData(compressionQuality: 1) {
             UserDefaults.standard.set(imageData, forKey: userImageKey)
         }
     }
@@ -60,10 +57,8 @@ class UserDefaultManager {
     static func loadUserImage() -> UIImage? {
         if let imageData = UserDefaults.standard.data(forKey: userImageKey){
             return UIImage(data: imageData)
-        } else {
-            print("Nenhuma imagem encontrada")
-            return nil
         }
+        return UIImage(named: "user")
     }
 }
 
